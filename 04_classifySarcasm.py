@@ -15,7 +15,7 @@ training_size = 20000
 
 # Load data
 data = pd.DataFrame([json.loads(line)
-                     for line in open('G:/My Projects/tfNLP/_data/Sarcasm_Headlines_Dataset.json', 'r')])
+                     for line in open('_data/Sarcasm_Headlines_Dataset.json', 'r')])
 print(data.info())
 sentences = data['headline'].values.tolist()
 labels = data['is_sarcastic'].values.tolist()
@@ -82,8 +82,8 @@ print(weights.shape) # shape: (vocab_size, embedding_dim)
 
 import io
 
-out_v = io.open('sarc_vecs.tsv', 'w', encoding='utf-8')
-out_m = io.open('sarc_meta.tsv', 'w', encoding='utf-8')
+out_v = io.open('tfProjectorData/sarc_vecs.tsv', 'w', encoding='utf-8')
+out_m = io.open('tfProjectorData/sarc_meta.tsv', 'w', encoding='utf-8')
 for word_num in range(1, vocab_size):
   word = reverse_word_index[word_num]
   embeddings = weights[word_num]
